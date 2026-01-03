@@ -259,30 +259,58 @@
 #         return total_price
 #
 ##############################################################
+#
+# #函数内可传函数,如：
+# def calculate_and_print(num, calculator, formatter):
+#     result = calculator(num)
+#     formatter(num, result)
+#
+# def print_with_vertical_ber(num, result):
+#     print(f"""
+#         ssss{num}
+#         ssss{result}""")
+#
+# def calculate_time_5(num):
+#     return num * 5
+#
+# calculate_and_print(7, calculate_time_5, print_with_vertical_ber)
+#
+# #也可以匿名函数：用lambda
+# #但是 ： 后面只有一条报答式
+# calculate_and_print(7, (lambda num1, num2: num1 + num2)
+#                             (2, 3),
+#                     print_with_vertical_ber)
+#
 
-#函数内可传函数,如：
-def calculate_and_print(num, calculator, formatter):
-    result = calculator(num)
-    formatter(num, result)
 
-def print_with_vertical_ber(num, result):
-    print(f"""
-        ssss{num}
-        ssss{result}""")
+class Lovely_Girt:
+    def __init__ (self, name, age, height, hair_color, lovely_level):
+        self.name = name
+        self.age = age
+        self.height = height
+        self.hair_color = hair_color
+        self.lovely_level = lovely_level
 
-def calculate_time_5(num):
-    return num * 5
+    def hair_color(self, hair_color):
+        print(self.hair_color)
 
-calculate_and_print(7, calculate_time_5, print_with_vertical_ber)
+    def lovely_level(self, love_level):
+        print(self.lovely_level)
 
-#也可以匿名函数：用lambda
-#但是 ： 后面只有一条报答式
-calculate_and_print(7, (lambda num1, num2: num1 + num2)
-                            (2, 3),
-                    print_with_vertical_ber)
+    def print_love_girt (Lovely_Girt):
+        print(Lovely_Girt.name)
+        print(Lovely_Girt.age)
+        print(Lovely_Girt.height)
+        print(Lovely_Girt.hair_color)
+        print(Lovely_Girt.lovely_level)
+        print("\n")
 
-
-
+Akane = Lovely_Girt("Akane", 16, 163, "blue", 100)
+Kana = Lovely_Girt("Kana", 17, 150, "red", 100)
+Ruby = Lovely_Girt("Ruby", 16, 158, "yellow", 100)
+Lovely_Girt.print_love_girt(Akane)
+Lovely_Girt.print_love_girt(Kana)
+Lovely_Girt.print_love_girt(Ruby)
 
 
 
