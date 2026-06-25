@@ -13,7 +13,7 @@ class CBattery:
     def consume(self, percent: int):
         self.__current_level = max(0, self.__current_level - percent)
         if  self.__current_level <= 0:
-            raise BatteryLowError
+            raise BatteryLowError(self.__current_level)
 
     def charge(self, percent: int):
         self.__current_level = min(100, self.__current_level + percent)

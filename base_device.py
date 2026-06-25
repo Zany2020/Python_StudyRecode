@@ -14,17 +14,15 @@ class BaseDevice(ABC):
     def show_info(self):
         pass
 
-    @classmethod#要操作类全局变量 → @classmethod
-    @abstractmethod
+    @classmethod#要操作类全局变量 → @classmethodd
     def get_total_count(cls):
         return cls.total_device_count
 
     @staticmethod#单纯工具计算，不碰对象 / 类 → @staticmethod
-    @abstractmethod
     def check_serial_number(serial: str):
         return len(serial) == 10 and serial.isdigit()
 
-#抽象类 + 抽象方法（纯虚函数）:
+#抽象类 + 抽象方法（纯虚函数，但是在py无定义,先天自带）:
 #1.统一规范接口，强制所有子类一套标准行为,只要继承 BaseDevice，三个方法必须全部实现，少一个直接报错
 #2.函数接收抽象父类，就能传任意子类对象(调用各自重写的show_info)
 #  手机子类重写python运行class Phone(BaseDevice):
