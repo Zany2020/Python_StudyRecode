@@ -14,8 +14,9 @@ class BaseDevice(ABC):
     def show_info(self):
         pass
 
-    @classmethod#要操作类全局变量 → @classmethodd
+    @classmethod#要操作类全局变量（所有对象共享） → @classmethodd
     def get_total_count(cls):
+        #cls指向类本身而不是对象
         return cls.total_device_count
 
     @staticmethod#单纯工具计算，不碰对象 / 类 → @staticmethod

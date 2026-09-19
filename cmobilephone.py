@@ -83,7 +83,7 @@ class CMobilePhone(BaseDevice, ABC):
     #2-提供多种创建对象的方式
     @classmethod
     def create_xiaomi14(cls, user: str, number: str):
-        #cls必带，cls(参数列表) 等价于 CMobilePhone(参数列表)
+        #cls必带，，class的简称，cls(参数列表) 等价于 CMobilePhone(参数列表)
         #cls(参数) 等价于 类(参数)的时候，调用__init__，这就是为什么结束后回到上面的__init__
         return cls(
             brand="Xiaomi",
