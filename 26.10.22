@@ -1,0 +1,34 @@
+import pymysql
+import sys
+sys.stdout.reconfigure(encoding='utf-8')
+
+db_config ={
+    "host": "localhost",    #代表**本机**
+    "port": 3306,           #MySQL 默认端口就是 3306
+    "user": "root",         #MySQL 默认超级管理员账号叫 `root`
+    "password": "123456",   #root 账号对应的密码
+    "database": "school",
+    "charset": "utf8mb4"
+}
+#`try`：里面放**有可能出错的代码**，尝试执行
+try:
+    conn = pymysql.connect(**db_config)
+    print("Connected to MySQL Server")
+    conn.close()
+    
+#如果 try 里面代码正常跑完，不会走 except
+except Exception as e:
+    print(f"fail to link{e}")
+    
+    
+def get_all_stduent():
+    coon = pymysql.connect(**db_config)#自己起的变量名(connnect)
+    cursor = conn.cursor()#自己起的变量名
+    sql = "SELECT * FROM student"
+    cursor.execute(sql)#让游标去执行这条 SQL 命令，发给 MySQL。
+    #`execute` 是**游标（cursor）自带的方法**，是 pymysql 规定好的名字
+    result = cursor.fetchall()#`fetchall()` = fetch all rows：**取出查询结果里的所有行**
+    for row in result:
+        print(f"学号：{row[0]} 姓名：{row[1]}, 年龄:{row[2]} 性别：{row[3]}")
+    cursor.close()
+    conn.close()
